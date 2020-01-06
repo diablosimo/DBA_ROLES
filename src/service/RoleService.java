@@ -3,6 +3,7 @@ package service;
 import bean.Role;
 import util.Connexion;
 import util.QueryUtil;
+import util.Session;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -11,6 +12,9 @@ import java.sql.Statement;
 import java.util.List;
 
 public class RoleService extends Connexion {
+
+    Connection connection=Session.getConnection();
+
     public int create(Role role) {
         if (role != null && role.getName() != null && !role.getName().isEmpty()) {
             if (isCreated(role.getName())) {
@@ -27,10 +31,10 @@ public class RoleService extends Connexion {
     public boolean isCreated(String name) {
         Statement stmt = null;
         ResultSet rs = null;
-        Connection conn = getConnection();
+       // Connection conn = Session.getConnection();
         int count = 0;
         try {
-            stmt = conn.createStatement();
+            stmt = connection.createStatement();
             rs = stmt.executeQuery("SELECT count (*) AS total FROM DBA_ROLES WHERE ROLE LIKE '" + name + "'");
             while (rs.next()) {
                 count = rs.getInt("total");
@@ -102,46 +106,49 @@ public class RoleService extends Connexion {
         return query;
     }
 
-    public int grant(List<String> granties, List<String> granted,Boolean withAdminOption){
+    public String grant(List<String> granties, List<String> granted,Boolean withAdminOption){
+        String result="";
         if(granties==null || granties.isEmpty() ){
-            return -1;
+            return "veuillez choisir un role.";
         }else if(granted==null ||granted.isEmpty()){
-            return -2;
+            return "Veuillew choisir un utilisateur ou un role.";
         }else{
             String query="GRANT ";
             query+= QueryUtil.explodeStringList(granties);
             query+="TO ";
             query+=QueryUtil.explodeStringList(granted);
             if(withAdminOption==true)
-                query+="WITH ADMIN OPTION";
-
-            exec(query);
-            return 1;
+                query+=" WITH ADMIN OPTION";
+            result=exec(query);
+            return result;
         }
     }
 
-    private void exec(String query) {
-        Connection connection = null;
+    private String exec(String query) {
+        //Connection connection = null;
         Statement statement = null;
+        String result="";
         try {
-            connection = getConnection();
+            //connection = getConnection();
             statement = connection.createStatement();
             statement.executeUpdate(query);
+            result="Success";
         } catch (SQLException e) {
             e.printStackTrace();
+            result=e.getMessage();
         } finally {
             try {
                 if (statement != null) {
                     statement.close();
                 }
-                if (connection != null) {
-                    connection.close();
-                }
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
+        return result;
     }
+
+
 
 
 }

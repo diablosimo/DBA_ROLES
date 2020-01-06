@@ -8,8 +8,11 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import service.RoleService;
 import util.Connexion;
+import util.Session;
 
 import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main extends Application {
 
@@ -24,11 +27,26 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         //Connection connection = Connexion.getConnection();
+        int connection = Connexion.connect("SYS AS SYSDBA","Simo13089122");
         RoleService roleService=new RoleService();
-        Role role=new Role("blast",true,false,false,"Simo13089122","","");
-        //int i=roleService.create(role);
-        int i=roleService.alter(role);
-        System.out.println(i+" res");
+
+//        System.out.println("connect= "+connection);
+//        System.out.println(Session.getConnection());
+//       Role role=new Role("blastoooo",true,false,false,"Simo13089122","","");
+//       int i=roleService.create(role);
+//        int j=roleService.alter(role);
+//       System.out.println(i+" res");
+//       System.out.println(j+" res");
+
+        List<String> granted=new ArrayList<>();
+        List<String> granties=new ArrayList<>();
+        granted.add("SCOTT");
+        granted.add("JWARD");
+        granted.add("BLAST");
+        granties.add("BLASTOOOOOOOOO");
+        granties.add("BLASTOOO");
+
+        String grant = roleService.grant(granties, granted, true);
         launch(args);
 
     }

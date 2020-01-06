@@ -9,7 +9,7 @@ public class QueryUtil {
         for (int i = 0; i <list.size() ; i++) {
             String s=list.get(i);
             result+=s;
-            if(i!=(list.size()-1)){
+            if(i==(list.size()-1)){
                 result+=" ";
             }else {
                 result+=", ";
