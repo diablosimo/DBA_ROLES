@@ -27,7 +27,7 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         //Connection connection = Connexion.getConnection();
-        int connection = Connexion.connect("SYS AS SYSDBA","Simo13089122");
+        int connection = Connexion.connect("SYS AS SYSDBA","");
         RoleService roleService=new RoleService();
 
 //        System.out.println("connect= "+connection);
