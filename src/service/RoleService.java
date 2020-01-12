@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 public class RoleService extends Connexion {
@@ -82,6 +83,7 @@ public class RoleService extends Connexion {
     private boolean executeUpdate(Role role, String query) {
         query=buildIdentifier(role,query);
         if(query==null) return true;
+        System.out.println(query);
         exec(query);
         return false;
     }
@@ -106,7 +108,7 @@ public class RoleService extends Connexion {
         return query;
     }
 
-    public String grant(List<String> granties, List<String> granted,Boolean withAdminOption){
+    public String grant(List<String> granties, List<String> granted,Boolean isPublic,Boolean withAdminOption){
         String result="";
         if(granties==null || granties.isEmpty() ){
             return "veuillez choisir un role.";
@@ -117,6 +119,8 @@ public class RoleService extends Connexion {
             query+= QueryUtil.explodeStringList(granties);
             query+="TO ";
             query+=QueryUtil.explodeStringList(granted);
+            if(isPublic==true)
+                query+=" ,PUBLIC";
             if(withAdminOption==true)
                 query+=" WITH ADMIN OPTION";
             result=exec(query);
@@ -148,6 +152,78 @@ public class RoleService extends Connexion {
         return result;
     }
 
+    public static List<String> findAll(){
+        Statement stmt = null;
+        ResultSet rs = null;
+         Connection conn = Session.getConnection();
+         String role;
+         List<String> roles=new ArrayList<>();
+        try {
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery("SELECT ROLE AS ROLE FROM DBA_ROLES ORDER by ROLE asc");
+            while (rs.next()) {
+                role = rs.getString("ROLE");
+                roles.add(role);
+            }
+        } catch (SQLException ex) {
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException sqlEx) {
+                } // ignore
+                rs = null;
+            }
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException sqlEx) {
+                } // ignore
+                stmt = null;
+            }
+        }
+        System.out.println(roles);
+        return roles;
+    }
+    public static List<String> findAllUsers(){
+        Statement stmt = null;
+        ResultSet rs = null;
+         Connection conn = Session.getConnection();
+         String user;
+         List<String> users=new ArrayList<>();
+        try {
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery("SELECT USERNAME AS USERNAME FROM ALL_USERS ORDER by USERNAME asc");
+            while (rs.next()) {
+                user = rs.getString("USERNAME");
+                users.add(user);
+            }
+        } catch (SQLException ex) {
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException sqlEx) {
+                } // ignore
+                rs = null;
+            }
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException sqlEx) {
+                } // ignore
+                stmt = null;
+            }
+        }
+        System.out.println(users);
+        return users;
+    }
 
 
 
