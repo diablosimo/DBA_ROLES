@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="497.0" prefWidth="250.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SideBarController">
+<AnchorPane prefHeight="497.0" prefWidth="250.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SideBarController">
         <children>
       <VBox prefHeight="600.0" prefWidth="262.0" styleClass="sidebar">
          <children>
@@ -25,7 +25,7 @@
                </padding></Label>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="262.0">
+                  <Button mnemonicParsing="false" onAction="#gotoDashboard" prefHeight="50.0" prefWidth="262.0">
                      <graphic>
                         <Label text="Acceuil" textFill="#b5b1b1">
                            <font>

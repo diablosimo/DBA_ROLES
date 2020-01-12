@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="600.0" prefWidth="1208.0" styleClass="app" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
       <fx:include fx:id="sideBar" source="sideBar.fxml" />
+      <TableView layoutX="340.0" layoutY="100.0" prefHeight="258.0" prefWidth="330.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

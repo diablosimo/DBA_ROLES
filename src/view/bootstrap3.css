@@ -791,8 +791,8 @@ VBox > .split-menu-button.last > .arrow-button {
 
 /*table view columns*/
 .filler,.column-header,.show-hide-columns-button {
-	-fx-background-color: #dddddd, white, white;
-}
+	 -fx-background-color: #dddddd, white, white;
+ }
 .show-hide-columns-button {
 	-fx-border-width: 0;
 	-fx-background-insets: 0 0 1 1;

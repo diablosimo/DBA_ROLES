@@ -8,37 +8,94 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@bootstrap3.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AlterController">
+<AnchorPane prefHeight="600.0" prefWidth="1208.0" styleClass="app" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AlterController">
     <fx:include fx:id="sideBar" source="sideBar.fxml" />
-    <AnchorPane layoutX="276.0" prefHeight="497.0" prefWidth="793.0">
+    <AnchorPane layoutX="263.0" prefHeight="600.0" prefWidth="946.0">
         <children>
-            <Label layoutX="141.0" layoutY="85.0" text="nom du role" />
-            <Label layoutX="138.0" layoutY="316.0" text="Mot de passe" />
-            <PasswordField fx:id="passwordField" layoutX="257.0" layoutY="312.0" />
-            <Label layoutX="138.0" layoutY="356.0" text="Schema" />
-            <TextField fx:id="schemaField" layoutX="257.0" layoutY="352.0" />
-            <Label layoutX="138.0" layoutY="398.0" text="package" />
-            <TextField fx:id="packageField" layoutX="257.0" layoutY="394.0" />
-            <RadioButton fx:id="identifiedRadio" layoutX="260.0" layoutY="125.0" mnemonicParsing="false" onAction="#isIdentified" text="Oui">
+            <Label layoutX="27.0" layoutY="41.0" text="Modifier Rôle" textFill="#ca1734">
+                <font>
+                    <Font name="Cambria Bold" size="32.0" />
+                </font>
+            </Label>
+            <Label layoutX="76.0" layoutY="108.0" text="nom du role">
+            <font>
+               <Font size="18.0" />
+            </font></Label>
+            <Label layoutX="73.0" layoutY="353.0" text="Mot de passe">
+            <font>
+               <Font size="18.0" />
+            </font></Label>
+            <PasswordField fx:id="passwordField" layoutX="201.0" layoutY="351.0">
+            <font>
+               <Font size="14.0" />
+            </font></PasswordField>
+            <Label layoutX="73.0" layoutY="393.0" text="Schema">
+            <font>
+               <Font size="18.0" />
+            </font></Label>
+            <TextField fx:id="schemaField" layoutX="201.0" layoutY="392.0">
+            <font>
+               <Font size="14.0" />
+            </font></TextField>
+            <Label layoutX="71.0" layoutY="436.0" text="package">
+            <font>
+               <Font size="18.0" />
+            </font></Label>
+            <TextField fx:id="packageField" layoutX="201.0" layoutY="434.0">
+            <font>
+               <Font size="14.0" />
+            </font></TextField>
+            <RadioButton fx:id="identifiedRadio" layoutX="204.0" layoutY="165.0" mnemonicParsing="false" onAction="#isIdentified" text="Oui">
                 <toggleGroup>
                     <ToggleGroup fx:id="identification" />
                 </toggleGroup>
+            <font>
+               <Font size="15.0" />
+            </font>
             </RadioButton>
-            <RadioButton fx:id="nonIdentifiedRadio" layoutX="332.0" layoutY="125.0" mnemonicParsing="false" onAction="#notIdentified" selected="true" text="Non" toggleGroup="$identification" />
-            <RadioButton fx:id="byPasswordRadio" layoutX="261.0" layoutY="171.0" mnemonicParsing="false" onAction="#byPassword" text="Par mot de passe">
+            <RadioButton fx:id="nonIdentifiedRadio" layoutX="276.0" layoutY="165.0" mnemonicParsing="false" onAction="#notIdentified" selected="true" text="Non" toggleGroup="$identification">
+            <font>
+               <Font size="15.0" />
+            </font></RadioButton>
+            <RadioButton fx:id="byPasswordRadio" layoutX="205.0" layoutY="211.0" mnemonicParsing="false" onAction="#byPassword" text="Par mot de passe">
                 <toggleGroup>
                     <ToggleGroup fx:id="identificationWay" />
                 </toggleGroup>
+            <font>
+               <Font size="16.0" />
+            </font>
             </RadioButton>
-            <Label layoutX="140.0" layoutY="125.0" text="Role identifé" />
-            <RadioButton fx:id="usingAppRadio" layoutX="260.0" layoutY="196.0" mnemonicParsing="false" onAction="#usingPackage" text="Role d'application" toggleGroup="$identificationWay" />
-            <RadioButton fx:id="externallyRadio" layoutX="260.0" layoutY="221.0" mnemonicParsing="false" onAction="#xternally" text="Par un service externe " toggleGroup="$identificationWay" />
-            <Label layoutX="139.0" layoutY="171.0" text="Identification" />
-            <RadioButton fx:id="globallyRadio" layoutX="260.0" layoutY="246.0" mnemonicParsing="false" onAction="#globally" text="Par le service de répertoire d'entreprise " toggleGroup="$identificationWay" />
-            <Button layoutX="415.0" layoutY="445.0" mnemonicParsing="false" onAction="#alter" text="Modifier" />
-            <Button layoutX="492.0" layoutY="445.0" mnemonicParsing="false" onAction="#cancel" text="Annuler" />
-         <ComboBox fx:id="nameBox" layoutX="257.0" layoutY="81.0" prefHeight="25.0" prefWidth="192.0" promptText="--SELECTIONNER--" />
+            <Label layoutX="75.0" layoutY="160.0" text="Role identifé">
+            <font>
+               <Font size="18.0" />
+            </font></Label>
+            <RadioButton fx:id="usingAppRadio" layoutX="204.0" layoutY="236.0" mnemonicParsing="false" onAction="#usingPackage" text="Role d'application" toggleGroup="$identificationWay">
+            <font>
+               <Font size="16.0" />
+            </font></RadioButton>
+            <RadioButton fx:id="externallyRadio" layoutX="204.0" layoutY="261.0" mnemonicParsing="false" onAction="#xternally" text="Par un service externe " toggleGroup="$identificationWay">
+            <font>
+               <Font size="16.0" />
+            </font></RadioButton>
+            <Label layoutX="75.0" layoutY="210.0" text="Identification">
+            <font>
+               <Font size="18.0" />
+            </font></Label>
+            <RadioButton fx:id="globallyRadio" layoutX="204.0" layoutY="286.0" mnemonicParsing="false" onAction="#globally" text="Par le service de répertoire d'entreprise " toggleGroup="$identificationWay">
+            <font>
+               <Font size="16.0" />
+            </font></RadioButton>
+            <Button layoutX="125.0" layoutY="515.0" mnemonicParsing="false" onAction="#alter" prefHeight="39.0" prefWidth="108.0" styleClass="button-ok" text="Modifier">
+            <font>
+               <Font size="18.0" />
+            </font></Button>
+            <Button layoutX="261.0" layoutY="515.0" mnemonicParsing="false" onAction="#cancel" styleClass="button-cancel" text="Annuler">
+            <font>
+               <Font size="18.0" />
+            </font></Button>
+         <ComboBox fx:id="nameBox" layoutX="198.0" layoutY="107.0" prefHeight="30.0" prefWidth="200.0" promptText="--SELECTIONNER--" />
         </children>
     </AnchorPane>
 
