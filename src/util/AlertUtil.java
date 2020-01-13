@@ -10,11 +10,18 @@ public  class AlertUtil {
         alert.setContentText("Veuillez s'authentifier");
         alert.showAndWait();
     }
-    public static void falseloginError() {
+    public static void urlStringError() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Erreur");
         alert.setHeaderText("connexion:");
-        alert.setContentText("Utilisateur ou mot de passe incorrecte");
+        alert.setContentText("Veuillez saisir les informations de l'URL de connexion");
+        alert.showAndWait();
+    }
+    public static void falseloginError() {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erreur");
+        alert.setHeaderText("Connexion:");
+        alert.setContentText("Connexion echouée!");
         alert.showAndWait();
     }
     public static void nameNotSetAlert() {

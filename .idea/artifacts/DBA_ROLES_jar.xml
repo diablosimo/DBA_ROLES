@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="DBA_ROLES:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/DBA_ROLES_jar</output-path>
+    <root id="archive" name="DBA_ROLES.jar">
+      <element id="module-output" name="DBA_ROLES" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/ojdbc6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/fontawesomefx-8.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/controlsfx-8.40.11.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/jfoenix-8.0.8.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

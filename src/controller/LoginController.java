@@ -29,23 +29,38 @@ public class LoginController extends Controller implements Initializable {
     private ComboBox<String> statutBox = new ComboBox<>();
 
     @FXML
+    private TextField instanceField;
+
+    @FXML
+    private TextField portField;
+
+    @FXML
+    private TextField hostNameField;
+
+    @FXML
     SideBarController sideBarController;
 
     public void seConnecter(ActionEvent event) {
         String login = loginField.getText();
         String password = passwordField.getText();
         String as = statutBox.getValue();
+        String hostName = hostNameField.getText();
+        String port = portField.getText();
+        String instance = instanceField.getText();
+
 
         if (login.isEmpty() || password.isEmpty() || as.isEmpty()) {
             AlertUtil.loginError();
+        } else if(hostName.isEmpty() || port.isEmpty()||instance.isEmpty()){
+            AlertUtil.urlStringError();
         } else {
             login += " AS " + as;
-            int result = Connexion.connect(login, password);
+            String url=hostName+":"+port+":"+instance;
+            int result = Connexion.connect(login, password,url);
             if (result == 1) {
                 try {
                     sideBarController = new SideBarController();
                     sideBarController.gotoDashboard(event);
-                    //gotoDashboard(event);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

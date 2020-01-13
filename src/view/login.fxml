@@ -8,39 +8,101 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="login" maxHeight="666.0" maxWidth="442.0" minHeight="666.0" minWidth="442.0"  prefHeight="666.0" prefWidth="442.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+<AnchorPane id="login" maxHeight="666.0" maxWidth="442.0" minHeight="666.0" minWidth="442.0" prefHeight="666.0" prefWidth="442.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
    <children>
-      <TextField fx:id="loginField" layoutX="225.0" layoutY="335.0">
+      <TextField fx:id="loginField" layoutX="225.0" layoutY="272.0">
          <font>
             <Font size="14.0" />
          </font></TextField>
-      <PasswordField fx:id="passwordField" layoutX="225.0" layoutY="382.0">
+      <PasswordField fx:id="passwordField" layoutX="225.0" layoutY="319.0">
          <font>
             <Font size="14.0" />
          </font></PasswordField>
-      <Label layoutX="75.0" layoutY="337.0" text="Nom d'utilisateur">
+      <Label layoutX="75.0" layoutY="274.0" text="Nom d'utilisateur">
          <font>
             <Font size="17.0" />
          </font></Label>
-      <Label layoutX="75.0" layoutY="384.0" text="Mot de passe">
+      <Label layoutX="75.0" layoutY="321.0" text="Mot de passe">
          <font>
             <Font size="17.0" />
          </font></Label>
-      <ComboBox fx:id="statutBox" layoutX="224.0" layoutY="431.0" prefHeight="30.0" prefWidth="175.0" />
-      <Label layoutX="75.0" layoutY="433.0" text="En tant que">
+      <ComboBox fx:id="statutBox" layoutX="224.0" layoutY="368.0" prefHeight="30.0" prefWidth="175.0" />
+      <Label layoutX="75.0" layoutY="370.0" text="En tant que">
          <font>
             <Font size="17.0" />
          </font></Label>
-      <Button layoutX="153.0" layoutY="507.0" mnemonicParsing="false" onAction="#seConnecter" onKeyPressed="#seConnecter" prefHeight="41.0" prefWidth="130.0" style="-fx-background-color: #252525; -fx-background-radius: 20px; -fx-border-color: none;" text="Se connecter" textFill="WHITE">
+      <Button layoutX="154.0" layoutY="508.0" mnemonicParsing="false" onAction="#seConnecter" onKeyPressed="#seConnecter" prefHeight="41.0" prefWidth="130.0" style="-fx-background-color: #252525; -fx-background-radius: 20px; -fx-border-color: none;" text="Se connecter" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="130.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="128.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resource/logo.png" />
          </image>
       </ImageView>
+      <Label layoutX="217.0" layoutY="456.0" text="inctance" />
+      <TextField fx:id="instanceField" layoutX="265.0" layoutY="450.0" prefHeight="29.0" prefWidth="56.0" text="orcl">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <Label layoutX="324.0" layoutY="456.0" text="Port" />
+      <TextField fx:id="portField" layoutX="354.0" layoutY="450.0" prefHeight="29.0" prefWidth="45.0" text="1521">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <Label layoutX="217.0" layoutY="423.0" text="Nom d'hôte" />
+      <TextField fx:id="hostNameField" layoutX="289.0" layoutY="417.0" prefHeight="29.0" prefWidth="110.0" text="localhost">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </TextField>
+      <Label layoutX="7.0" layoutY="597.0" rotate="28.5" text="M.BENMANSOUR">
+         <textFill>
+            <RadialGradient centerX="0.5388888888888889" centerY="0.5619047619047619" radius="0.9186046511627908">
+               <stops>
+                  <Stop color="#ca1734" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </textFill>
+         <font>
+            <Font name="Ebrima Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="333.0" layoutY="606.0" rotate="-28.5" text="M.ZARBAG">
+         <textFill>
+            <RadialGradient centerX="0.5388888888888889" centerY="0.5619047619047619" radius="0.9186046511627908">
+               <stops>
+                  <Stop color="#ca1734" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </textFill>
+         <font>
+            <Font name="Ebrima Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="196.0" layoutY="614.0" text="IRISI">
+         <font>
+            <Font name="Ebrima Bold" size="19.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.4888888888888889" centerY="0.5" cycleMethod="REFLECT" focusAngle="108.43" focusDistance="-0.11627906976744196" radius="0.6511627906976745">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="BLACK" offset="0.007662835249042145" />
+                  <Stop color="BLACK" offset="0.5057471264367812" />
+                  <Stop color="#ca1734" offset="0.9961685823754789" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Label>
    </children>
 </AnchorPane>
