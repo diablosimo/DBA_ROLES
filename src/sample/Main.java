@@ -29,7 +29,6 @@ public class Main extends Application {
         Parent parent = FXMLLoader.load(myClass.getResource(pageName));
         Scene scene = new Scene(parent);
         Stage app_stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-        app_stage.hide();
         app_stage.setScene(scene);
         app_stage.show();
 

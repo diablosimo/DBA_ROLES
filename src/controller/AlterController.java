@@ -13,7 +13,7 @@ import util.AlertUtil;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AlterController extends Controller implements Initializable {
+public class AlterController implements Initializable {
 
     @FXML
     SideBarController sideBarController;

@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CreateController extends Controller implements Initializable {
+public class CreateController implements Initializable {
 
     @FXML
     SideBarController sideBarController;

@@ -17,13 +17,15 @@ import java.net.URL;
 import java.util.*;
 import java.util.List;
 
-public class GrantController extends Controller implements Initializable {
+public class GrantController implements Initializable {
 
     @FXML
     SideBarController sideBarController;
 
     @FXML
     private CheckComboBox<String> nameBox = new CheckComboBox<>();
+    @FXML
+    private CheckComboBox<String> privBox = new CheckComboBox<>();
     @FXML
     private CheckComboBox<String> usersBox = new CheckComboBox<>();
     @FXML
@@ -41,6 +43,7 @@ public class GrantController extends Controller implements Initializable {
 
     private void cancel() {
         nameBox.getCheckModel().clearChecks();
+        privBox.getCheckModel().clearChecks();
         usersBox.getCheckModel().clearChecks();
         rolesBox.getCheckModel().clearChecks();
         adminCheckBox.setSelected(false);
@@ -54,7 +57,7 @@ public class GrantController extends Controller implements Initializable {
 
         boolean isPulic;
         boolean withAdminOption = false;
-        if (nameBox.getCheckModel().getCheckedItems().size() <= 0) {
+        if (nameBox.getCheckModel().getCheckedItems().size() <= 0 || privBox.getCheckModel().getCheckedItems().size() <= 0) {
             AlertUtil.noRoleSelectedForGrantAlert();
             return;
         }
@@ -73,7 +76,11 @@ public class GrantController extends Controller implements Initializable {
             withAdminOption = false;
         }
 
-        granties = nameBox.getCheckModel().getCheckedItems();
+        for (String g : nameBox.getCheckModel().getCheckedItems())
+            granties.add(g);
+        for (String g : privBox.getCheckModel().getCheckedItems())
+            granties.add(g);
+
         for (String g : usersBox.getCheckModel().getCheckedItems())
             granted.add(g);
         for (String g : rolesBox.getCheckModel().getCheckedItems())
@@ -93,6 +100,7 @@ public class GrantController extends Controller implements Initializable {
         nameBox.getItems().addAll(RoleService.findAll());
         usersBox.getItems().addAll(RoleService.findAllUsers());
         rolesBox.getItems().addAll(RoleService.findAll());
+        privBox.getItems().addAll(RoleService.findAllSysPrivs());
 
 
     }

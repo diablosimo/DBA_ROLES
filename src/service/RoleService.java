@@ -224,6 +224,41 @@ public class RoleService extends Connexion {
         System.out.println(users);
         return users;
     }
+    public static List<String> findAllSysPrivs(){
+        Statement stmt = null;
+        ResultSet rs = null;
+         Connection conn = Session.getConnection();
+         String priv;
+         List<String> privs=new ArrayList<>();
+        try {
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery("SELECT DISTINCT (PRIVILEGE) AS USERNAME FROM DBA_SYS_PRIVS ORDER by USERNAME asc");
+            while (rs.next()) {
+                priv = rs.getString("USERNAME");
+                privs.add(priv);
+            }
+        } catch (SQLException ex) {
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (SQLException sqlEx) {
+                } // ignore
+                rs = null;
+            }
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (SQLException sqlEx) {
+                } // ignore
+                stmt = null;
+            }
+        }
+        return privs;
+    }
 
 
 

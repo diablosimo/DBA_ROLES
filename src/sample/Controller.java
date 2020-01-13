@@ -8,6 +8,6 @@ import util.Connexion;
 import java.io.IOException;
 
 public class Controller {
-    @FXML
-    SideBarController sideBarController;
+//    @FXML
+//    SideBarController sideBarController;
 }

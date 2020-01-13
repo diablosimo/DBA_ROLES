@@ -21,19 +21,19 @@
             <font>
                <Font size="20.0" />
             </font></Label>
-            <Label layoutX="83.0" layoutY="227.0" text="Utilisateur(s)">
+            <Label layoutX="83.0" layoutY="292.0" text="Utilisateur(s)">
             <font>
                <Font size="20.0" />
             </font></Label>
-            <Label layoutX="83.0" layoutY="270.0" text="Rôles">
+            <Label layoutX="83.0" layoutY="335.0" text="Rôles">
             <font>
                <Font size="20.0" />
             </font></Label>
-            <Label layoutX="82.0" layoutY="315.0" text="Public">
+            <Label layoutX="82.0" layoutY="380.0" text="Public">
             <font>
                <Font size="20.0" />
             </font></Label>
-            <Label layoutX="63.0" layoutY="185.0" text="Attribué(s) à">
+            <Label layoutX="63.0" layoutY="250.0" text="Attribué(s) à">
             <font>
                <Font size="20.0" />
             </font></Label>
@@ -46,22 +46,28 @@
                <Font size="18.0" />
             </font></Button>
          <CheckComboBox fx:id="nameBox" layoutX="202.0" layoutY="125.0" prefHeight="30.0" prefWidth="207.0" style="-fx-background-color: #FFFFFF;" />
-         <CheckComboBox fx:id="usersBox" layoutX="202.0" layoutY="227.0" prefHeight="30.0" prefWidth="207.0" />
-         <Separator layoutX="63.0" layoutY="163.0" prefHeight="0.0" prefWidth="373.0" />
-         <CheckComboBox fx:id="rolesBox" layoutX="202.0" layoutY="270.0" prefHeight="30.0" prefWidth="207.0" />
-         <CheckBox fx:id="publicCheckBox" layoutX="202.0" layoutY="318.0" mnemonicParsing="false" text="Oui">
+         <CheckComboBox fx:id="usersBox" layoutX="202.0" layoutY="292.0" prefHeight="30.0" prefWidth="207.0" />
+         <Separator layoutX="63.0" layoutY="228.0" prefHeight="0.0" prefWidth="373.0" />
+         <CheckComboBox fx:id="rolesBox" layoutX="202.0" layoutY="335.0" prefHeight="30.0" prefWidth="207.0" />
+         <CheckBox fx:id="publicCheckBox" layoutX="202.0" layoutY="383.0" mnemonicParsing="false" text="Oui">
             <font>
                <Font size="16.0" />
             </font></CheckBox>
-         <Separator layoutX="67.0" layoutY="357.0" prefHeight="0.0" prefWidth="373.0" />
-         <Label layoutX="62.0" layoutY="382.0" prefHeight="30.0" prefWidth="146.0" text="Option d'admin">
+         <Separator layoutX="67.0" layoutY="422.0" prefHeight="0.0" prefWidth="373.0" />
+         <Label layoutX="62.0" layoutY="447.0" prefHeight="30.0" prefWidth="146.0" text="Option d'admin">
             <font>
                <Font size="20.0" />
             </font></Label>
-         <CheckBox fx:id="adminCheckBox" layoutX="208.0" layoutY="385.0" mnemonicParsing="false" text="Oui">
+         <CheckBox fx:id="adminCheckBox" layoutX="208.0" layoutY="450.0" mnemonicParsing="false" text="Oui">
             <font>
                <Font size="16.0" />
             </font></CheckBox>
+         <Label layoutX="64.0" layoutY="177.0" text="Previlège">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+         <CheckComboBox fx:id="privBox" layoutX="202.0" layoutY="177.0" prefHeight="30.0" prefWidth="207.0" style="-fx-background-color: #FFFFFF;" />
         </children>
     </AnchorPane>
 
